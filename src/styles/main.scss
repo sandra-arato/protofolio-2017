@@ -1,0 +1,15 @@
+$my_color: #ff0000;
+
+@keyframes spin {
+	100%{
+		transform: rotate(360deg);
+	}
+}
+
+body {
+	color: $my_color;
+}
+
+a {
+	transition: transform 1s;
+}
