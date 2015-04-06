@@ -1,4 +1,6 @@
-$my_color: #ff0000;
+@import "normalize";
+@import "colors";
+
 
 @keyframes spin {
 	100%{
@@ -6,10 +8,88 @@ $my_color: #ff0000;
 	}
 }
 
-body {
-	color: $my_color;
+@import url(http://fonts.googleapis.com/css?family=Montserrat|Hind:300);
+
+* {
+	box-sizing: bolder-box;
 }
 
-a {
-	transition: transform 1s;
+body {
+	color: $text;
+	background: $background;
+	font-family: Hind, sans-serif;
+	font-size: 18px;
+	padding-bottom: 3rem;
+}
+h1, h2, h3, h4, h5 {
+	font-family: Montserrat, sans-serif;
+}
+header {
+	position: relative;
+	min-height: 10em;
+	background: url('../images/header.JPG') center center no-repeat;
+	background-size: cover;
+
+	nav {
+		position: absolute;
+		bottom: 0;
+		background: #fff;
+		width: 100%;
+		text-align: center;
+		padding: 0.6em 0;
+		overflow: hidden;
+		font-family: Montserrat, sans-serif;
+
+		a {
+			text-transform: uppercase;
+			color: $text;
+			line-height: 1.4em;
+			text-decoration: none;
+			letter-spacing: 0.03em;
+			padding: 0.8em 0.6em;
+			margin: 0 0.8em;
+			background-color: #fff;
+			transition: background-color 0.3s ease,
+						color 0.3s ease;
+
+			&:hover, &:active, &:focus {
+				color: #fff;
+				background-color: $primary;
+			}
+		}
+	}
+}
+
+.project {
+	display: inline-block;
+	box-sizing: border-box;
+	width: 100%;
+	background: #fff;
+	border-bottom: 4px solid darken($background, 15%);
+	padding: 1em;
+	
+	figure {
+		margin: 0;
+
+		img {
+			width: 100%;
+		}
+	}
+	
+}
+
+
+@media (min-width: 600px) {
+
+	header {
+		min-height: 22em;
+	}
+	.project {
+		max-width: 30%;
+	}
+
+	#container {
+		max-width: 980px;
+		margin: 0 auto;
+	}
 }

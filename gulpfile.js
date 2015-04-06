@@ -5,10 +5,17 @@ var gulp = require('gulp'),
 	rename = require('gulp-rename'),
 	concat = require('gulp-concat'),
 	uglify = require('gulp-uglify'),
-	jade = require('gulp-jade');
+	jade = require('gulp-jade')
+	imagemin = require('gulp-imagemin'),
+	pngquant = require('imagemin-pngquant');
 
 gulp.task('process-styles', function(){
-	return sass('src/styles/main.scss', { style: 'expanded' })
+	return sass('src/styles/main.scss', { 
+		style: 'expanded',
+		loadPath: [
+			'src/styles/_normalize.scss',
+			'src/styles/_colors.scss'
+		]})
 		.pipe(autoprefixer('last 2 version'))
         .pipe(gulp.dest('dest/styles'))
         .pipe(rename({suffix: '.min'}))
@@ -31,10 +38,22 @@ gulp.task('templates', function(){
 	.pipe(gulp.dest('dest/'));
 });
 
+gulp.task('images', function() {
+    return gulp.src('src/images/*')
+        .pipe(imagemin({
+            progressive: true,
+            svgoPlugins: [{removeViewBox: false}],
+            use: [pngquant()]
+        }))
+        .pipe(gulp.dest('dest/images'));
+});
+
 gulp.task('watch', function(){
 	gulp.watch('src/scripts/*.js', ['process-scripts']);
 	gulp.watch('src/*.jade', ['templates']);
+	gulp.watch('src/includes/*.jade', ['templates']);
 	gulp.watch('src/styles/*.scss', ['process-styles']);
+	gulp.watch('src/images/*', ['images']);
 });
 
 gulp.task('default', function(){
