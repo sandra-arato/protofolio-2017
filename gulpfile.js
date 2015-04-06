@@ -14,7 +14,8 @@ gulp.task('process-styles', function(){
 		style: 'expanded',
 		loadPath: [
 			'src/styles/_normalize.scss',
-			'src/styles/_colors.scss'
+			'src/styles/_colors.scss',
+			'src/styles/_icomoon.scss'
 		]})
 		.pipe(autoprefixer('last 2 version'))
         .pipe(gulp.dest('dest/styles'))

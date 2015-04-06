@@ -32,5 +32,3 @@ var projects = [
 ];
 
 var test = ['hello', 'now', 'world'];
-
-console.log(projects);

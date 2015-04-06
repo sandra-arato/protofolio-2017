@@ -1,4 +1,5 @@
 @import "normalize";
+@import "icomoon";
 @import "colors";
 
 
@@ -43,18 +44,25 @@ header {
 		a {
 			text-transform: uppercase;
 			color: $text;
-			line-height: 1.4em;
+			line-height: 1.2em;
 			text-decoration: none;
 			letter-spacing: 0.03em;
-			padding: 0.8em 0.6em;
+			padding: 0.6em 0.6em 0.4em 0.6em;
 			margin: 0 0.8em;
 			background-color: #fff;
+			border-bottom: 0.7em solid #fff;
 			transition: background-color 0.3s ease,
-						color 0.3s ease;
+						color 0.3s ease,
+						border-color 0.3s ease;
 
 			&:hover, &:active, &:focus {
 				color: #fff;
 				background-color: $primary;
+				border-bottom: 0.7em solid $primary;
+			}
+
+			&.active {
+				border-bottom: 0.7em solid $primary;
 			}
 		}
 	}
@@ -64,9 +72,11 @@ header {
 	display: inline-block;
 	box-sizing: border-box;
 	width: 100%;
+	vertical-align: top;
 	background: #fff;
 	border-bottom: 4px solid darken($background, 15%);
 	padding: 1em;
+	margin: 0.6em 0.6em 0.6em 0;
 	
 	figure {
 		margin: 0;
@@ -74,6 +84,25 @@ header {
 		img {
 			width: 100%;
 		}
+	}
+
+	.footer {
+		a {
+			color: $primary;
+			text-decoration: none;
+			margin-right: 0.4em;
+
+			&:hover, &:focus, &:active {
+				color: lighten($primary, 15%);
+			}
+
+			span {
+				font-family: 'icomoon';
+			}
+
+
+		}
+		
 	}
 	
 }
@@ -86,10 +115,28 @@ header {
 	}
 	.project {
 		max-width: 30%;
+
+		&.horizontal {
+			max-width: 60%;
+
+			figure, .description {
+				display: inline-block;
+				width: 45%;
+				vertical-align: center;
+			}
+
+			.description {
+				padding-left: 1.4em;
+			}
+		}
+
+		&.double {
+			max-width: 60%;
+		}
 	}
 
 	#container {
-		max-width: 980px;
+		max-width: 1024px;
 		margin: 0 auto;
 	}
 }
