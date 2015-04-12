@@ -8,14 +8,18 @@ html(lang="en")
   body
     header
       nav
+        p(style='display:none') Sandra Szenti's
         a.active(href="#") Projects
         a(href="skills.html") Skills
         a(href="#") Contact
-    article#container.col(role='main')
+    article#container(role='main')
+      p.intro This is a keyboard & screenreader friendly site.
       h1 Sandra Szenti's portfolio
-      p.
-        This is some of the interesting projects I've been involved recently.
-      include ./includes/test.jade
-      include ./includes/frontliners.jade
-      include ./includes/islandhoppers.jade
+      .col2
+        include ./includes/test.jade
+      .col5
+        include ./includes/frontliners.jade
+      .col5
+        include ./includes/islandhoppers.jade
+
             

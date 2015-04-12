@@ -9,7 +9,7 @@
 	}
 }
 
-@import url(http://fonts.googleapis.com/css?family=Montserrat|Hind:300);
+@import url(http://fonts.googleapis.com/css?family=Josefin+Sans|Quicksand|Jura:500);
 
 * {
 	box-sizing: bolder-box;
@@ -17,66 +17,74 @@
 
 body {
 	color: $text;
-	background: $background;
-	font-family: Hind, sans-serif;
-	font-size: 18px;
+	background: $secondary;
+	font-family: Quicksand, sans-serif;
+	font-size: 16px;
 	padding-bottom: 3rem;
+	word-spacing: 0.2em;
 }
+
+p {
+	line-height: 1.4em;
+}
+
 h1, h2, h3, h4, h5 {
-	font-family: Montserrat, sans-serif;
+	font-family: 'Josefin Sans', sans-serif;
 }
+
+h1 {
+	margin-top: 3.6em;
+	color: #fff;
+	text-transform: uppercase;
+	text-align: center;
+	letter-spacing: 0.15em;
+}
+
 header {
-	position: relative;
-	min-height: 10em;
-	background: url('../images/header.JPG') center center no-repeat;
-	background-size: cover;
+	position: fixed;
+	top: -3.2em;
+	width: 120%;
+	transform: rotate(-4deg);
+	font-size: 1.2em;
 
 	nav {
-		position: absolute;
-		bottom: 0;
+		padding: 1.6em 0 1em 0;
 		background: #fff;
-		width: 100%;
-		text-align: center;
-		padding: 0.6em 0;
-		overflow: hidden;
-		font-family: Montserrat, sans-serif;
+		font-family: 'Josefin Sans', sans-serif;
+		box-shadow: 2px 1px 2em darken($secondary, 25%);
 
 		a {
 			text-transform: uppercase;
 			color: $text;
-			line-height: 1.2em;
+			line-height: 1.4em;
 			text-decoration: none;
 			letter-spacing: 0.03em;
-			padding: 0.6em 0.6em 0.4em 0.6em;
-			margin: 0 0.8em;
+			margin: 0 1.2em;
 			background-color: #fff;
-			border-bottom: 0.7em solid #fff;
-			transition: background-color 0.3s ease,
-						color 0.3s ease,
-						border-color 0.3s ease;
+			transition: color 0.3s ease;
 
-			&:hover, &:active, &:focus {
-				color: #fff;
-				background-color: $primary;
-				border-bottom: 0.7em solid $primary;
-			}
-
-			&.active {
-				border-bottom: 0.7em solid $primary;
+			&:hover, &:active, &:focus, &.active {
+				color: $primary;
+				text-decoration: underline;
 			}
 		}
 	}
 }
 
+p.intro {
+	text-align: right;
+	font-size: 1em;
+	margin-right: 2em;
+}
+
 .project {
-	display: inline-block;
 	box-sizing: border-box;
-	width: 100%;
 	vertical-align: top;
+	text-align: left;
 	background: #fff;
-	border-bottom: 4px solid darken($background, 15%);
 	padding: 1em;
-	margin: 0.6em 0.6em 0.6em 0;
+	margin: 0;
+	box-shadow: 2px 1px 0.3em darken($secondary, 15%);
 	
 	figure {
 		margin: 0;
@@ -87,13 +95,14 @@ header {
 	}
 
 	.footer {
+		text-align: right;
 		a {
-			color: $primary;
+			color: lighten($text, 30%);
 			text-decoration: none;
 			margin-right: 0.4em;
 
 			&:hover, &:focus, &:active {
-				color: lighten($primary, 15%);
+				color: lighten($text, 50%);
 			}
 
 			span {
@@ -108,35 +117,21 @@ header {
 }
 
 
-@media (min-width: 600px) {
-
-	header {
-		min-height: 22em;
-	}
-	.project {
-		max-width: 30%;
-
-		&.horizontal {
-			max-width: 60%;
-
-			figure, .description {
-				display: inline-block;
-				width: 45%;
-				vertical-align: center;
-			}
-
-			.description {
-				padding-left: 1.4em;
-			}
-		}
-
-		&.double {
-			max-width: 60%;
-		}
+@media (min-width: 640px) {
+	.col2, .col5 {
+		display: inline-block;
+		vertical-align: top;
+		width: 14rem;
 	}
 
+	.col5 {
+		width: 37.5rem;
+	}
 	#container {
-		max-width: 1024px;
-		margin: 0 auto;
+		// max-width: 1024px;
+		// margin: 0 auto;
+		// text-align: center;
+
+
 	}
 }
