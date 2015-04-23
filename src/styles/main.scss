@@ -43,13 +43,15 @@ h1 {
 
 header {
 	position: fixed;
-	top: -3.2em;
-	width: 120%;
+	top: -18em;
+	left: -3em;
+	width: 10000px;
 	transform: rotate(-4deg);
 	font-size: 1.2em;
+	z-index: 10001;
 
 	nav {
-		padding: 1.6em 0 1em 0;
+		padding: 1.6em 0 1em 2em;
 		background: #fff;
 		font-family: 'Josefin Sans', sans-serif;
 		box-shadow: 2px 1px 2em darken($secondary, 25%);
@@ -72,10 +74,13 @@ header {
 	}
 }
 
-p.intro {
-	text-align: right;
-	font-size: 1em;
-	margin-right: 2em;
+#container {
+	text-align: center;
+
+	& > p {
+		text-align: right;
+		padding: 4em 2em 0 0;
+	}
 }
 
 .project {
@@ -84,7 +89,7 @@ p.intro {
 	text-align: left;
 	background: #fff;
 	padding: 1em;
-	margin: 1.2em 0;
+	margin-bottom: 1.2em;
 	box-shadow: 2px 1px 0.3em darken($secondary, 15%);
 
 	figure {
@@ -118,26 +123,103 @@ p.intro {
 		}
 		
 	}
+
+	.videowrapper {
+		float: none;
+		clear: both;
+		width: 100%;
+		position: relative;
+		padding-bottom: 56.25%;
+		padding-top: 25px;
+		height: 0;
+
+		iframe {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
+	}
 	
 }
 
+@media (min-width: 440px) and (max-resolution: 1.5dppx) {
+	.col2 {
+		.project {
+			display: inline-block;
+			width: 100%;
+			vertical-align: bottom;
 
-@media (min-width: 640px) {
+			figure {
+				position:relative;
+				display: inline-block;
+				overflow:hidden;
+				width: 25%;
+				text-align: center;
+			}
+
+			.description {
+				display: inline-block;
+				width: 70%;
+			}
+		}
+	}
+}
+
+
+@media (min-width: 810px) and (max-resolution: 1.5dppx) {
 	.col2, .col5 {
 		display: inline-block;
 		vertical-align: top;
-		width: 14rem;
+	}
+	.col2 {
+		.project {
+			display: block;
+			width: 14rem;
+
+			figure {
+				display: block;
+				width: auto;
+			}
+
+			.description {
+				display: block;
+				width: auto;
+			}
+		}
 	}
 
 	.col5 {
-		width: 36rem;
-		margin-left: 0.5rem; 
+		width: auto;
+
+		.project {
+			width: 36rem;
+		}
 	}
+
 	#container {
 		max-width: 1440px;
 		margin: 0 auto;
 		text-align: center;
+	}
+}
 
+@media (min-width: 1400px) {
+	#container > p {
+		padding-top: 2em;
+	}
 
+	.col5 {
+		width: 72rem;
+		text-align: justify;
+
+		.project {
+			width: 35rem;
+		}
+	}
+
+	.col2 {
+		margin-right: 0.5rem;
 	}
 }

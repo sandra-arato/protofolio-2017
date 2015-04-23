@@ -4,7 +4,7 @@ html(lang="en")
     meta(charset='utf-8')
     title= ('Sandra Szenti - Front end developer')
     link(rel='stylesheet', type='text/css', href='styles/main.min.css')
-    script(src="/scripts/main.js")
+    script(defer, src="/scripts/main.js")
   body
     header
       nav
@@ -20,11 +20,12 @@ html(lang="en")
         include ./includes/brittrip.jade
         include ./includes/redlist.jade
       .col5
+        include ./includes/expedia.jade
         include ./includes/islandhoppers.jade
-        include ./includes/uninflux.jade
-        include ./includes/checkbox.jade
-      .col5
-        include ./includes/uvprinter.jade
         include ./includes/animations.jade
+        include ./includes/uvprinter.jade
+        include ./includes/uninflux.jade
+        include ./includes/fhb.jade
+        include ./includes/checkbox.jade
 
             
