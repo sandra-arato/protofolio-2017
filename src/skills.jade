@@ -5,13 +5,124 @@ html(lang="en")
     title= ('Sandra Szenti - Resume')
     link(rel='stylesheet', type='text/css', href='styles/main.min.css')
     script(src="/scripts/main.js")
-  body
+  body.skills
     header
       nav
         a(href="index.html") Projects
         a.active(href="#") Skills
         a(href="#") Contact
-    #container.col
-      h1 Skills & experience
-      p.
-        This is going to be my resume.
+    article#container(role='main')
+      h1 Skills & experience 
+      .col5
+        p.tools
+          button(type='button')
+            span.icon-print Print
+          button(type='button')
+            span.icon-export Share
+          button(type='button')
+            span.icon-download Save
+        section
+          h2 Sandra Szenti
+          p sandra@idoescode.com
+          p sandra.idoescode.com
+        section
+          h3 Front End Developer / London, UK
+          p I've been freelance contracting since last year, working at both agency and client side. I also work remotely occasionally, depending on the project needs. 
+        section.experience
+          h3 Projects
+
+          p Client: Expedia
+          p At the Client Side Engineering Team of Expedia, I worked on the UI Toolkit, the front end framework of Expedia. Most important projects that I developed and coordinated:
+          ul
+            li Implementing functional testing with Funcunit
+            li Transferring the toolkit from component based plugins to AMD modules
+            li Starting the migration from JSP tags to Handlebars helpers
+
+          p Client: Mito Europe Ltd.
+          p I worked for Mito Europe as a remote contractor in 2014. Two of the projects that I worked on:
+          ul
+            li Prototyping for GE Lightning
+            li FHB Bank microsite for spring campaign 2014
+
+          p Client: Vinyl Grafik Studio
+          p The client asked me to build a product website for their new product they launched in 2014. Tasks that I was in charge for:
+          ul
+            li Design and development
+            li Google Analytics and SEO
+
+        section.talents
+          h3 Skills
+          p 
+            | Front End Technologies
+            ul
+              li Semantic HTML
+              li HTML templating
+              li Jade
+              li Handlebars
+              li JSP tags
+              li CSS3
+              li Less
+              li SASS
+              li Stylus
+              li SVG
+              li Cross-browser development
+              li Mobile-first
+              li Responsive
+              li Bootstrap
+              li JavaScript
+              li D3
+              li AMD
+              li Grunt
+              li gulp
+              li Meteor
+              li Ionic Framework
+              li Angular.js
+          p Testing
+            ul
+              li Unit testing
+              li TDD
+              li Jasmine
+              li Funcunit
+              li TestNG
+              li Visual regression testing
+              li PhantomJS
+              li BrowserStack
+              li Automated testing
+              li Jenkins
+              li Cucumber
+          p Accessibilty
+            ul
+              li ARIA
+              li WCAG guidelines
+              li Landmarks
+              li JAWS
+              li VoiceOver
+              li NVDA
+              li Colour contrast
+              li Focus Management
+              li Semantic HTML
+              li Accessibility Testing
+          p Performance
+            ul
+              li Web page performance
+              li Webpagetest
+              li Sitespeed.io
+              li PageInsight
+              li Critical Rendering Path
+              li Optimising page load &bull;
+          p General
+            ul
+              li Version Control
+              li Git
+              li SourceTree
+              li Bash
+              li Heroku
+              li Facebook API
+              li Google Maps API
+              li Google Docs APIs
+              li 3D modelling
+              li 3D printing
+      p
+        a(href="#") Back to the top of the page
+
+

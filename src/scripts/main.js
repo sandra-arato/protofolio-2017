@@ -1,7 +1,8 @@
 document.addEventListener('DOMContentLoaded', function(){
 
-	console.log('start');
-	var debounce, gridSetter, masonryInit, msnry, sticky, stickyInit;
+	var debounce, gridSetter, masonryInit, msnry, sticky, stickyInit,
+		getAction, save, print, share,
+		container = document.querySelector('.portfolio .col5');
 
 	debounce = function(func, wait, immediate) {
 		var timeout;
@@ -19,9 +20,7 @@ document.addEventListener('DOMContentLoaded', function(){
 	};
 
 	gridSetter = function() {
-		var container = document.querySelector('#container .col5');
-		
-		if (window.matchMedia('(min-width: 1400px)').matches) {
+		if (window.matchMedia('(min-width: 1400px)').matches && container) {
 			msnry = new Masonry( container, {
 				itemSelector: '.project',
 				gutter: 16
@@ -31,21 +30,47 @@ document.addEventListener('DOMContentLoaded', function(){
 			msnry.destroy();
 			masonryInit = false;
 		} 
-
-		// if (window.matchMedia('(min-width: 810px)').matches) {
-		// 	sticky = document.querySelector('.col2');
-		// 	stickyInit = new Sticky(sticky, {});
-		// } else if (stickyInit) {
-		// 	stickyInit.trigger('sticky:disable');
-		// } else {
-		// 	stickyInit.trigger('sticky:disable');
-		// }
-
-
 	};
 
-	window.addEventListener('resize', debounce(gridSetter, 250));
-	gridSetter();
+	getAction = function (elem) {
+		var type;
+		if (elem.tagName.toLowerCase() === 'button' ) {
+			type = elem.childNodes[0].innerHTML;
+		} else {
+			type = elem.innerHTML;
+		}
 
+		return type;
+	};
+
+	window.save = function() {
+		console.log('save');
+	};
+
+	window.share = function() {
+		console.log('shar');
+	};
 	
+	// setting up event listeners for the 2 pages
+	if (container) {
+		// this section happens on the portfolio
+		window.addEventListener('resize', debounce(gridSetter, 250));
+		imagesLoaded(container, function() { gridSetter(); });
+	} else {
+		// this section happens on skills page
+		var buttons = document.getElementsByTagName('button'),
+			len = buttons.length,
+			i;
+		console.log(buttons)
+		for (i = 0; i < len; i++ ) {
+			buttons[i].addEventListener('click', function(e) {
+				var type = getAction(e.target).toLowerCase();
+
+				window[type]();
+
+			});
+		}
+
+	}
+
 });

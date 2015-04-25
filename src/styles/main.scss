@@ -9,10 +9,10 @@
 	}
 }
 
-@import url(http://fonts.googleapis.com/css?family=Josefin+Sans|Quicksand|Jura:500);
+@import url(http://fonts.googleapis.com/css?family=Josefin+Sans:400,600|Quicksand);
 
 * {
-	box-sizing: bolder-box;
+	box-sizing: border-box;
 }
 
 body {
@@ -30,6 +30,14 @@ p {
 
 h1, h2, h3, h4, h5 {
 	font-family: 'Josefin Sans', sans-serif;
+}
+
+a span, button span {
+	display: inline-block;
+	font-family: 'icomoon';
+	width: 1em;
+	height: 1em;
+	overflow: hidden;
 }
 
 h1 {
@@ -59,7 +67,7 @@ header {
 		a {
 			text-transform: uppercase;
 			color: $text;
-			line-height: 1.4em;
+			line-height: 1.2em;
 			text-decoration: none;
 			letter-spacing: 0.03em;
 			margin: 0 1.2em;
@@ -80,6 +88,20 @@ header {
 	& > p {
 		text-align: right;
 		padding: 4em 2em 0 0;
+	}
+
+	& > p:last-child {
+		text-align: center;
+
+		a {
+			color: #fff;
+			text-decoration: none;
+
+			&:hover, &:focus {
+				text-decoration: underline;
+				font-weight: 600;
+			}
+		}
 	}
 }
 
@@ -107,19 +129,17 @@ header {
 	.footer {
 		text-align: right;
 		a {
+			font-size: 1.2rem;
 			color: lighten($text, 30%);
 			text-decoration: none;
-			margin-right: 0.4em;
+			line-height: 1.2em;
+			margin: 1.2em 0.4em 0 0;
+			padding: 0.4em 0.3em 0 0.3em;
 
 			&:hover, &:focus, &:active {
-				color: lighten($text, 50%);
+				background: lighten($text, 50%);
+				color: #fff;
 			}
-
-			span {
-				font-family: 'icomoon';
-			}
-
-
 		}
 		
 	}
@@ -141,7 +161,67 @@ header {
 			height: 100%;
 		}
 	}
-	
+}
+
+.skills .col5 {
+	background: #fff;
+	text-align: left;
+	padding: 1em 1em 2em 1em;
+	box-shadow: 0px 1px 0.8em darken($secondary, 22%);
+
+	section {
+		margin: 1.2em 0;
+		padding-top: 1.4em;
+		
+		h2, h3 {
+			color: lighten($primary, 15%);
+			margin: 1.2em 0 0.4em 0;
+		}
+
+		p {
+			margin: 0;
+		}
+	}
+
+	.tools {
+		text-align: right;
+
+		button {
+			color: lighten($text, 30%);
+			border: none;
+			background: #fff;
+			margin-right: 0.7em;
+		}
+	}
+
+	.experience p:nth-child(2), 
+	.experience p:nth-child(5),
+	.experience p:nth-child(7), 
+	.experience p:nth-child(8), 
+	.talents p {
+		font-family: 'Josefin Sans', sans-serif;
+		font-size: 1.15rem;
+		letter-spacing: 0.08em;
+		margin-top: 2em;
+	}
+
+	.experience li {
+		line-height: 1.6em;
+	}
+
+	.talents {
+
+		li {
+			display: inline;
+			line-height: 1.6em;
+			white-space: normal;
+
+			&:not(:last-child):after {
+				content: " \2022";
+			}
+			
+		}
+	}
 }
 
 @media (min-width: 440px) and (max-resolution: 1.5dppx) {
@@ -199,9 +279,17 @@ header {
 	}
 
 	#container {
+		width: 100%;
 		max-width: 1440px;
 		margin: 0 auto;
 		text-align: center;
+	}
+
+	.skills .col5 {
+		box-sizing: border-box;
+		width: 54rem;
+		margin: 0 auto;
+		padding: 2em;
 	}
 }
 
@@ -210,16 +298,93 @@ header {
 		padding-top: 2em;
 	}
 
-	.col5 {
+	.col5, .skills .col5 {
 		width: 72rem;
 		text-align: justify;
 
 		.project {
 			width: 35rem;
 		}
+
+		.experience{
+			display: inline-block;
+			width: 36%;
+			margin-right: 5%;
+		}
+
+		.talents {
+			display: inline-block;
+			width: 54%;
+		}
+	}
+
+	.skills .col5 section {
+		vertical-align: top;
 	}
 
 	.col2 {
 		margin-right: 0.5rem;
+	}
+
+}
+
+@media print {
+	* {
+		color: #000;
+	}
+	header, h1, .tools, #container > p:last-child {
+		display: none;
+	}
+	.col2 {
+		.project {
+			display: inline-block;
+			width: 14rem;
+
+			figure {
+				display: block;
+				width: auto;
+			}
+
+			.description {
+				display: block;
+				width: auto;
+			}
+		}
+	}
+
+	.col5 {
+		display: block;
+		width: auto;
+
+		.project {
+			width: 36rem;
+		}
+	}
+
+	#container {
+		width: 100%;
+		max-width: 1440px;
+		margin: 0 auto;
+		text-align: center;
+	}
+
+	.skills .col5 {
+		box-sizing: border-box;
+		width: 54rem;
+		margin: 0 auto;
+		padding: 2em;
+
+		section, h2, h3, ul {
+			margin: 0;
+			padding-top: 0;
+		}
+
+		.experience p:nth-child(2), 
+		.experience p:nth-child(5),
+		.experience p:nth-child(7), 
+		.experience p:nth-child(8), 
+		.talents p {
+			margin-top: 0.4em;
+		}
 	}
 }
