@@ -103,6 +103,57 @@ header {
 			}
 		}
 	}
+
+	.social a {
+		display: block;
+		font-size: 3rem;
+		width: 1em;
+		height: 1em;
+		line-height: 1.2em;
+		overflow: hidden;
+		margin: 0.5em auto;
+		border-radius: 0.03em;
+	}
+
+	.social a:hover, .social a:focus {
+		background: #fff;
+		color: $secondary;
+	}
+
+	.social a:first-child {
+		width: 1em;
+		height: 0.7em;
+
+		span {
+			display: block;
+			width: 90%;
+			height: 90%;
+			border: 0.06em solid #fff;
+			overflow: hidden;
+			margin: 0.035em auto 0 auto;
+
+			&:after {
+				display: block;
+				content: '';
+				position: relative;
+				left: 0.03em;
+				top: -0.45em;
+				width: 0.6em;
+				height: 0.6em;
+				border: 0.06em solid #fff;
+				transform: rotate(45deg);
+			}
+		}
+
+		&:hover span, &:focus span {
+			border: 0.06em solid $secondary;
+			
+			&:after {
+				border: 0.06em solid $secondary;
+			}
+		}
+	}
+		
 }
 
 .project {
@@ -185,13 +236,18 @@ header {
 
 	.tools {
 		text-align: right;
+		a {
+			display: inline-block;
+		}
 
-		button {
+		button, a {
 			color: lighten($text, 30%);
 			border: none;
 			background: #fff;
 			margin-right: 0.7em;
+			padding: 0 0.4em;
 		}
+
 	}
 
 	.experience p:nth-child(2), 
@@ -373,6 +429,7 @@ header {
 		width: 54rem;
 		margin: 0 auto;
 		padding: 2em;
+		box-shadow: none;
 
 		section, h2, h3, ul {
 			margin: 0;
