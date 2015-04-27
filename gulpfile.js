@@ -58,14 +58,8 @@ gulp.task('watch', function(){
 });
 
 gulp.task('default', function(){
-	console.log('Building project from scratch...');
 	gulp.run('process-styles');
-	console.log('Compiling styles');
 	gulp.run('process-scripts');
-	console.log('Compiling scripts');
 	gulp.run('templates');
-	console.log('Parsing templates');
 	gulp.run('images');
-	console.log('Minifying images');
-	console.log('PROJECT FINISHED!');
 });
