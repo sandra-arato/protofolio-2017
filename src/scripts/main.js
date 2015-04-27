@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function(){
 
-	var debounce, gridSetter, masonryInit, msnry, sticky, stickyInit,
-		getAction, save, print, share,
+	var debounce, gridSetter, masonryInit, msnry,
+		getAction, showName,
 		container = document.querySelector('.portfolio .col5');
 
 	debounce = function(func, wait, immediate) {
@@ -43,8 +43,14 @@ document.addEventListener('DOMContentLoaded', function(){
 		return type;
 	};
 
-	window.save = function() {
-		console.log('save');
+	showName = function () {
+		var headerName = document.querySelector('nav p');
+
+		if (document.body.scrollTop > 150) {
+			headerName.className = '';
+		} else if (headerName.className === '') {
+			headerName.className = 'noshow';
+		}
 	};
 
 	window.share = function() {
@@ -56,6 +62,8 @@ document.addEventListener('DOMContentLoaded', function(){
 		// this section happens on the portfolio
 		window.addEventListener('resize', debounce(gridSetter, 250));
 		imagesLoaded(container, function() { gridSetter(); });
+
+
 	} else {
 		// this section happens on skills page
 		var buttons = document.getElementsByTagName('button'),
@@ -65,12 +73,12 @@ document.addEventListener('DOMContentLoaded', function(){
 		for (i = 0; i < len; i++ ) {
 			buttons[i].addEventListener('click', function(e) {
 				var type = getAction(e.target).toLowerCase();
-
+				
 				window[type]();
-
 			});
 		}
-
 	}
+
+	document.addEventListener('scroll', debounce(showName, 100));
 
 });

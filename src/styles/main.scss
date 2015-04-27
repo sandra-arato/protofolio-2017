@@ -32,6 +32,11 @@ h1, h2, h3, h4, h5 {
 	font-family: 'Josefin Sans', sans-serif;
 }
 
+.noshow {
+	visibility: hidden;
+	max-height: 0;
+}
+
 a span, button span {
 	display: inline-block;
 	font-family: 'icomoon';
@@ -63,6 +68,17 @@ header {
 		background: #fff;
 		font-family: 'Josefin Sans', sans-serif;
 		box-shadow: 2px 1px 2em darken($secondary, 25%);
+
+		p {
+			margin: 0 0 0.2em 1em;
+			max-height: 3em;
+			text-transform: uppercase;
+			font-size: 1.4em;
+			font-weight: 600;
+			letter-spacing: 0.06em;
+			color: $tertiary;
+			transition: max-height 0.2s ease;
+		}
 
 		a {
 			text-transform: uppercase;
@@ -106,51 +122,32 @@ header {
 
 	.social a {
 		display: block;
-		font-size: 3rem;
+		font-size: 2rem;
 		width: 1em;
 		height: 1em;
 		line-height: 1.2em;
 		overflow: hidden;
 		margin: 0.5em auto;
-		border-radius: 0.03em;
+		border-radius: 0.06em;
+
+		&:first-child {
+			color: $secondary;
+			background: #fff;
+
+			span {
+				font-size: 1.2em;
+				margin: -0.1em 0 0 -0.1em;
+			}
+		}
 	}
 
 	.social a:hover, .social a:focus {
 		background: #fff;
 		color: $secondary;
-	}
 
-	.social a:first-child {
-		width: 1em;
-		height: 0.7em;
-
-		span {
-			display: block;
-			width: 90%;
-			height: 90%;
-			border: 0.06em solid #fff;
-			overflow: hidden;
-			margin: 0.035em auto 0 auto;
-
-			&:after {
-				display: block;
-				content: '';
-				position: relative;
-				left: 0.03em;
-				top: -0.45em;
-				width: 0.6em;
-				height: 0.6em;
-				border: 0.06em solid #fff;
-				transform: rotate(45deg);
-			}
-		}
-
-		&:hover span, &:focus span {
-			border: 0.06em solid $secondary;
-			
-			&:after {
-				border: 0.06em solid $secondary;
-			}
+		&:first-child {
+			color: #fff;
+			background: $secondary;
 		}
 	}
 		
@@ -181,14 +178,14 @@ header {
 		text-align: right;
 		a {
 			font-size: 1.2rem;
-			color: lighten($text, 30%);
+			color: $tertiary;
 			text-decoration: none;
 			line-height: 1.2em;
 			margin: 1.2em 0.4em 0 0;
 			padding: 0.4em 0.3em 0 0.3em;
 
 			&:hover, &:focus, &:active {
-				background: lighten($text, 50%);
+				background: lighten($tertiary, 23%);
 				color: #fff;
 			}
 		}
