@@ -11,10 +11,7 @@
 	.description
 		h2 Codepen example
 		p Loading animations with CSS is something that I like to code with minimalistic markup. Each of the animations above is one single span with a loading message for accessibility.
-	.footer
-		a(href="#")
-			span.icon-github
-		a(href="#")
-			span.icon-heart-outlined
-		a(href="#")
-			span.icon-share
+		.footer
+			each val, index in {share:'one',github:'two',link:'three'}
+				a(href=val)
+					span(class= 'icon-' + index)= 'View project on ' + index
