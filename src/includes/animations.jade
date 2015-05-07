@@ -1,4 +1,6 @@
-.project
+extends project.jade
+
+block figure
 	p(data-height='560', data-theme-id='13254', data-slug-hash='azPMyL', data-default-tab='result', data-user='sandraszenti', class='codepen' style='height:560px') See the Pen
 		a(href='http://codepen.io/sandraszenti/pen/azPMyL/') Loading animations
 		| by Sandra Szenti (
@@ -7,11 +9,9 @@
 		a(href='http://codepen.io') CodePen
 		| .
 	script(async, src='//assets.codepen.io/assets/embed/ei.js')
-
-	.description
-		h2 Codepen example
-		p Loading animations with CSS is something that I like to code with minimalistic markup. Each of the animations above is one single span with a loading message for accessibility.
-		.footer
-			each val, index in {share:'one',github:'two',link:'three'}
-				a(href=val)
-					span(class= 'icon-' + index)= 'View project on ' + index
+block title
+	h2 Codepen example
+block content
+	p Loading animations with CSS is something that I like to code with minimalistic markup. Each of the animations above is one single span with a loading message for accessibility.
+block links
+	+footer({id:'anim', web:'http://codepen.io/sandraszenti/pen/azPMyL/', share: 'http://codepen.io/sandraszenti/pen/azPMyL/'})

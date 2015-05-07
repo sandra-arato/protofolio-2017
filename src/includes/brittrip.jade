@@ -1,16 +1,10 @@
-.project
-	figure
-		img(src='images/brittrip.png', srcset='brittrip.x15.png 1.5x', alt='Brit Trip logo')
-	.description
-		h2 BritTrip
-		p The winning mobile app at the hackathon organized by Yahoo and VisitBritain. It's built with Ionic, Angular, Sass and Handlebars and uses the TravelTime Platform.
-	.footer
-		a(href="#")
-			span.icon-github
-		a(href="#")
-			span.icon-heart-outlined
-		a(href="#")
-			span.icon-link
-		a(href="#")
-			span.icon-share
-		
+extends project.jade
+
+block figure
+	img(src='images/brittrip.png', srcset='brittrip.x15.png 1.5x', alt='Brit Trip logo')
+block title
+	h2 BritTrip
+block content
+	p The winning mobile app at the hackathon organized by Yahoo and VisitBritain. It's built with Ionic, Angular, Sass and Handlebars and uses the TravelTime Platform.
+block links
+	+footer({id:'brittrip', github:'https://github.com/sandraszenti/BritTrip/', share: 'https://github.com/sandraszenti/BritTrip'})

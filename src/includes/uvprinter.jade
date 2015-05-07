@@ -1,16 +1,10 @@
-.project
-	figure
-		img(src='images/uvprinter.png', srcset='uvprinter.x15.png 1.5x, uvprinter.x2.png 2x', alt='UV printer website')
-	.description
-		h2 UV Printer
-		p Simple product website for a digital printer built responsively with Bootstrap. Designing and building this site in 3 days helped to gather first impressions quickly and adjust UI accordingly.
-	.footer
-		a(href="#")
-			span.icon-github
-		a(href="#")
-			span.icon-heart-outlined
-		a(href="#")
-			span.icon-link
-		a(href="#")
-			span.icon-share
-		
+extends project.jade
+
+block figure
+	img(src='images/uvprinter.png', srcset='uvprinter.x15.png 1.5x, uvprinter.x2.png 2x', alt='UV printer website')
+block title
+	h2 UV Printer
+block content
+	p Simple product website for a digital printer built responsively with Bootstrap. Designing and building this site in 3 days helped to gather first impressions quickly and adjust UI accordingly.
+block links
+	+footer({id:'uvprinter', github:'https://github.com/sandraszenti/uvprinter', web:'http://www.uvprinter.hu', share: 'http://www.uvprinter.hu'})

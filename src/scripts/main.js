@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function(){
 
 	var debounce, gridSetter, masonryInit, msnry,
-		getAction, showName,
+		getAction, showName, shareHandler,
 		container = document.querySelector('.portfolio .col5');
 
 	debounce = function(func, wait, immediate) {
@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', function(){
 		};
 	};
 
+	// setup masonry grid
 	gridSetter = function() {
 		if (window.matchMedia('(min-width: 1400px)').matches && container) {
 			msnry = new Masonry( container, {
@@ -32,6 +33,7 @@ document.addEventListener('DOMContentLoaded', function(){
 		} 
 	};
 
+	// skills page resume buttons handler
 	getAction = function (elem) {
 		var type;
 		if (elem.tagName.toLowerCase() === 'button' ) {
@@ -43,6 +45,7 @@ document.addEventListener('DOMContentLoaded', function(){
 		return type;
 	};
 
+	// scrolling triggers showing name in nav
 	showName = function () {
 		var headerName = document.querySelector('nav p');
 
@@ -53,7 +56,14 @@ document.addEventListener('DOMContentLoaded', function(){
 		}
 	};
 
-	window.share = function() {
+	shareHandler = function () {
+		var shareButtons = document.querySelectorAll('.footer a:nth-child(3)'),
+			len = shareButtons.length,
+			i;
+		console.log(shareButtons);
+	};
+
+	window.share = function () {
 		console.log('shar');
 	};
 	
@@ -62,14 +72,13 @@ document.addEventListener('DOMContentLoaded', function(){
 		// this section happens on the portfolio
 		window.addEventListener('resize', debounce(gridSetter, 250));
 		imagesLoaded(container, function() { gridSetter(); });
-
+		shareHandler();
 
 	} else {
 		// this section happens on skills page
 		var buttons = document.getElementsByTagName('button'),
 			len = buttons.length,
 			i;
-		console.log(buttons)
 		for (i = 0; i < len; i++ ) {
 			buttons[i].addEventListener('click', function(e) {
 				var type = getAction(e.target).toLowerCase();

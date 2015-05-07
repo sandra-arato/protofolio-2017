@@ -1,27 +1,10 @@
-.project
-	figure
-		img(src='images/expedia.png', srcset='expedia.x15.png 1.5x, expedia.x2.png 2x', alt='Expedia landing page')
-	.description
-		h2 Expedia - UI Toolkit
-		p As a member of Client Side Engineering team, I worked on the front end framework of Expedia, the UI Toolkit. The toolkit currently supports 4 brands and numerous locales and languages. It's built on JSP tags, uses Handlebars and LESS.
-	.footer
-		each val, index in {github:'two',link:'http://www.expedia.com/', share: { id: 'expedia', fb: 'www.et.fd', tw:'gdgtd', go: 'goo'}}
-			case index
-				when 'share'
-					a(href='#' + val.id, class='sharing')
-						span.icon-share Share project
-					ul(id=val.id, role='listbox')
-						li.fb(role='option')
-							| <span class="icon-facebook2"></span>
-							| Facebook
-						li.tw(role='option')
-							| <span class="icon-twitter"></span>
-							| Twitter
-						li.go(role='option')
-							| <span class="icon-google-plus"></span>
-							| Google +
+extends project.jade
 
-				default
-					a(href=val)
-						span(class= 'icon-' + index)= 'View project on ' + index
-		
+block figure
+	img(src='images/expedia.png', srcset='expedia.x15.png 1.5x, expedia.x2.png 2x', alt='Expedia landing page')
+block title
+	h2 Expedia - UI Toolkit
+block content
+	p As a member of Client Side Engineering team, I worked on the front end framework of Expedia, the UI Toolkit. The toolkit currently supports 4 brands and numerous locales and languages. It's built on JSP tags, uses Handlebars and LESS.
+block links
+	+footer({id:'expedia', web:'http://www.expedia.com', share: 'http://www.expedia.com'})

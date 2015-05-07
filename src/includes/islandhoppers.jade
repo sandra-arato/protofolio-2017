@@ -1,15 +1,10 @@
-.project.double
-	figure
-		img(src='images/carib.png', srcset='carib.x15.png 1.5x, carib.x2.png 2x', alt='Caribbean Island Hoppers project screenshot')
-	.description
-		h2 Caribbean Island Hoppers
-		p A mini-blog about a trip to the Caribbean built on Ghost blogging platform and a self-designed theme. It's deployed via Heroku on a node instance.
-	.footer
-		a(href="#")
-			span.icon-github
-		a(href="#")
-			span.icon-heart-outlined
-		a(href="#")
-			span.icon-link
-		a(href="#")
-			span.icon-share
+extends project.jade
+
+block figure
+	img(src='images/carib.png', srcset='carib.x15.png 1.5x, carib.x2.png 2x', alt='Caribbean Island Hoppers project screenshot')
+block title
+	h2 Caribbean Island Hoppers
+block content
+	p A mini-blog about a trip to the Caribbean built on Ghost blogging platform and a self-designed theme. It's deployed via Heroku on a node instance.
+block links
+	+footer({id:'carib', github:'https://github.com/sandraszenti/pirates-blog', web:'http://carib.idoestravel.com', share: 'http://carib.idoestravel.com'})
