@@ -57,9 +57,23 @@ document.addEventListener('DOMContentLoaded', function(){
 	};
 
 	shareHandler = function () {
-		var shareButtons = document.querySelectorAll('.footer a:nth-child(3)'),
+		var shareButtons = document.getElementsByClassName('share');
 			len = shareButtons.length,
 			i;
+		for(i = 0; i < len; i++) {
+			shareButtons[i].addEventListener('click', function(e){
+				e.preventDefault();
+				if(e.target.className.indexOf('active') > -1) {
+					e.target.className = 'share icon-share';
+				} else {
+					e.target.className = 'share icon-share active';
+				}
+			})
+
+			shareButtons[i].addEventListener('blur', function(e){
+				console.log(e);
+			})
+		}
 		console.log(shareButtons);
 	};
 

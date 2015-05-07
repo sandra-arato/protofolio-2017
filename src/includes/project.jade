@@ -3,12 +3,11 @@ mixin footer(sharing)
 		each val, index in sharing
 			case index
 				when 'share'
-					a(href='#' + this.id, class='sharing')
-						span.icon-share Share project
+					a(href='#' + this.id, class='share icon-share')
 					ul(id=id, role='listbox')
-						li.fb(role='option'): a(href='https://www.facebook.com/sharer/sharer.php?u='+val): span.icon-facebook2 Facebook
-						li.tw(role='option'): a(href='http://twitter.com/share?text=Awesome project by @whatevertechno!&url='+val): span.icon-twitter Twitter
-						li.go(role='option'): a(href='https://plus.google.com/share?url='+val): span.icon-google-plus Google+
+						li(role='option'): a(href='https://www.facebook.com/sharer/sharer.php?u='+val): span.icon-facebook2 Facebook
+						li(role='option'): a(href='http://twitter.com/share?text=Awesome project by @whatevertechno!&url='+val): span.icon-twitter Twitter
+						li(role='option'): a(href='https://plus.google.com/share?url='+val): span.icon-google-plus Google+
 				when 'id'
 					return
 				default
