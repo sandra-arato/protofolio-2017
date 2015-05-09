@@ -12,16 +12,20 @@ html(lang="en")
         a(href="index.html") Projects
         a.active(href="#") Skills
         a(href="contact.html") Contact
-    article#container(role='main')
+    article#container(role='main', tabindex='-1')
       h1 Skills & experience 
       .col5
-        p.tools
+        .tools
           button(type='button')
             span.icon-print Print Resume
           a(href='../SandraSzenti_FrontEndDev_Resume.pdf', role='button')
             span.icon-download Save Resume
           button(type='button')
             span.icon-share Share Resume
+          ul.share Choose sharing option:
+            li: a(href='https://www.facebook.com/sharer/sharer.php?u=http://sandra.idoescode.com/skills.html'): span.icon-facebook2 Facebook
+            li: a(href='http://twitter.com/share?text=The awesome resume of @whatevertechno!&url=http://sandra.idoescode.com/skills.html'): span.icon-twitter Twitter
+            li: a(href='https://plus.google.com/share?url=http://sandra.idoescode.com/skills.html'): span.icon-google-plus Google+
         section
           h2 Sandra Szenti
           p sandra@idoescode.com
@@ -126,6 +130,6 @@ html(lang="en")
               li 3D modelling
               li 3D printing
       p
-        a(href="#") Back to the top of the page
+        a(href="#container") Back to the top of the page
 
 

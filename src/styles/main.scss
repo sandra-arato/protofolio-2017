@@ -2,13 +2,6 @@
 @import "icomoon";
 @import "colors";
 
-
-@keyframes spin {
-	100%{
-		transform: rotate(360deg);
-	}
-}
-
 @import url(http://fonts.googleapis.com/css?family=Josefin+Sans:400,600|Quicksand);
 
 * {
@@ -183,8 +176,11 @@ header {
 			color: $tertiary;
 			text-decoration: none;
 			line-height: 1.2em;
+			width: 1em;
+			height: 1.2em;
 			margin: 0.9em 0.4em 0 0;
-			padding: 0.4em 0.3em 0 0.3em;
+			padding: 0.1em;
+			overflow: hidden;
 
 			&:hover, &:focus, &.active {
 				background: lighten($tertiary, 23%);
@@ -195,35 +191,6 @@ header {
 				display: block;
 			}
 		}
-
-		ul {
-			display: none;
-			white-space: nowrap;
-			overflow: hidden;
-			padding: 0;
-			margin: 0;
-			background: #fff;
-
-			&:before, &:after {
-				display: table;
-				content: '';
-			}
-
-			li {
-				list-style: none;
-				float: right;
-				display: inline-block;
-				font-size: 1.2rem;
-				width: 1.7em;
-				overflow: hidden;
-				margin-right: 0.3em;
-				
-				a {
-					padding: 0.4em 0.3em 0;
-					margin-top: 0.4em;
-				}
-			}
-	}
 		
 	}
 
@@ -245,6 +212,30 @@ header {
 		}
 	}
 	
+}
+
+ul.share {
+	display: none;
+	white-space: nowrap;
+	overflow: hidden;
+	padding: 0;
+	margin: 0;
+	background: #fff;
+	text-align: right;
+
+	li {
+		list-style: none;
+		display: inline-block;
+		font-size: 1.2rem;
+		width: 1.7em;
+		overflow: hidden;
+		margin-right: 0.3em;
+		
+		a {
+			padding: 0.4em 0.3em 0;
+			margin-top: 0.4em;
+		}
+	}
 }
 
 .skills .col5 {
@@ -281,6 +272,10 @@ header {
 			padding: 0 0.4em;
 		}
 
+		button.active + ul {
+			display: block;
+		}
+
 	}
 
 	.experience p:nth-child(2), 
@@ -306,6 +301,7 @@ header {
 			white-space: normal;
 
 			&:not(:last-child):after {
+				list-style-type: none;
 				content: " \2022";
 			}
 			

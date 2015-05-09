@@ -27,10 +27,12 @@ document.addEventListener('DOMContentLoaded', function(){
 				gutter: 16
 			});
 			masonryInit = true;
+			msnry.layout();
 		} else if (masonryInit) {
 			msnry.destroy();
 			masonryInit = false;
 		} 
+
 	};
 
 	// skills page resume buttons handler
@@ -63,24 +65,30 @@ document.addEventListener('DOMContentLoaded', function(){
 		for(i = 0; i < len; i++) {
 			shareButtons[i].addEventListener('click', function(e){
 				e.preventDefault();
-				if(e.target.className.indexOf('active') > -1) {
-					e.target.className = 'share icon-share';
+				var element = e.target,
+					listBoxId = element.getAttribute('href');
+				
+				listBoxId = listBoxId.slice(1, listBoxId.length);
+
+				if(element.className.indexOf('active') > -1) {
+					element.className = 'share icon-share';
 				} else {
-					e.target.className = 'share icon-share active';
+					element.className = 'share icon-share active';
 				}
+				
+				document.getElementById(listBoxId).setAttribute('tabindex', '-1');
+				document.getElementById(listBoxId).focus();
+				
+				msnry.layout();
 			})
 
 			shareButtons[i].addEventListener('blur', function(e){
 				console.log(e);
 			})
 		}
-		console.log(shareButtons);
+
 	};
 
-	window.share = function () {
-		console.log('shar');
-	};
-	
 	// setting up event listeners for the 2 pages
 	if (container) {
 		// this section happens on the portfolio
@@ -95,9 +103,23 @@ document.addEventListener('DOMContentLoaded', function(){
 			i;
 		for (i = 0; i < len; i++ ) {
 			buttons[i].addEventListener('click', function(e) {
-				var type = getAction(e.target).toLowerCase();
-				
-				window[type]();
+				var element,
+					type = getAction(e.target).toLowerCase().split(' ')[0];
+				if (type === 'print') {
+					print();
+				} else {
+					element = e.target.getAttribute('type') ? e.target : e.target.parentElement;
+					if(element.className.indexOf('active') > -1) {
+						element.className = '';
+					} else {
+						element.className = 'active';
+						console.log(element.nextSibling);
+						element.nextElementSibling.setAttribute('tabindex', '-1');
+						element.nextElementSibling.focus();
+					}
+
+					
+				}
 			});
 		}
 	}

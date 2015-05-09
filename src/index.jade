@@ -12,7 +12,7 @@ html(lang="en")
         a.active(href='#') Projects
         a(href='skills.html') Skills
         a(href='contact.html') Contact
-    article#container(role='main')
+    article#container(role='main', tabindex='-1')
       p.intro This is a keyboard & screenreader friendly site.
       h1 Sandra Szenti's portfolio
       .col2
@@ -30,6 +30,6 @@ html(lang="en")
         include ./includes/fhb.jade
         
       p
-        a(href="#") Back to the top of the page
+        a(href="#container") Back to the top of the page
 
             
