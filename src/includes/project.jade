@@ -3,18 +3,20 @@ mixin footer(sharing)
 		each val, index in sharing
 			case index
 				when 'share'
-					a(href='#' + val.id, class='share icon-share', role='button') Share this project
-					ul.share(id=val.id) Choose sharing option:
-						li: a(href='https://www.facebook.com/sharer/sharer.php?u='+val.url): span.icon-facebook2 Facebook
-						li: a(href='http://twitter.com/share?text=Awesome project by @whatevertechno!&url='+val.url): span.icon-twitter Twitter
-						li: a(href='https://plus.google.com/share?url='+val.url): span.icon-google-plus Google+
+					a(class='share icon-share', role='button', href='#'+val.id) Share this project
+					div(tabindex='-1', id=val.id, aria-hidden='true')
+						span Choose sharing option:
+						ul.share
+							li: a(href='https://www.facebook.com/sharer/sharer.php?u='+val.url, target='_blank'): span.icon-facebook2 Facebook
+							li: a(href='http://twitter.com/share?text=Awesome project by @whatevertechno!&url='+val.url, target='_blank'): span.icon-twitter Twitter
+							li: a(href='https://plus.google.com/share?url='+val.url, target='_blank'): span.icon-google-plus Google+
 				when 'id'
 					return
 				default
-					a(href=val)
+					a(href=val, target='_blank')
 						span(class= 'icon-' + index)= 'View project on ' + index
 
-.project
+article.project(role='article')
 	figure
 		block figure
 			img(src='http://placekitten.com/g/300/200')

@@ -13,26 +13,23 @@ html(lang="en")
         a.active(href="#") Skills
         a(href="contact.html") Contact
     article#container(role='main', tabindex='-1')
-      h1 Skills & experience 
+      h1#heading(tabindex='-1') Skills & experience 
       .col5
         .tools
-          button(type='button')
-            span.icon-print Print Resume
-          a(href='../SandraSzenti_FrontEndDev_Resume.pdf', role='button')
-            span.icon-download Save Resume
-          button(type='button')
-            span.icon-share Share Resume
-          ul.share Choose sharing option:
-            li: a(href='https://www.facebook.com/sharer/sharer.php?u=http://sandra.idoescode.com/skills.html'): span.icon-facebook2 Facebook
-            li: a(href='http://twitter.com/share?text=The awesome resume of @whatevertechno!&url=http://sandra.idoescode.com/skills.html'): span.icon-twitter Twitter
-            li: a(href='https://plus.google.com/share?url=http://sandra.idoescode.com/skills.html'): span.icon-google-plus Google+
+          | <button type="button"><span class="icon-print">Print Resume</span></button><a role="button" href="../SandraSzenti_FrontEndDev_Resume.pdf" download><span class="icon-download">Save Resume</span></a><button type="button"><span class="icon-share">Share Resume</span></button>
+          div(tabindex='-1')
+            span Choose sharing option:
+            ul.share
+              li: a(href='https://www.facebook.com/sharer/sharer.php?u=http://sandra.idoescode.com/skills.html'): span.icon-facebook2 Facebook
+              li: a(href='http://twitter.com/share?text=The awesome resume of @whatevertechno!&url=http://sandra.idoescode.com/skills.html'): span.icon-twitter Twitter
+              li: a(href='https://plus.google.com/share?url=http://sandra.idoescode.com/skills.html'): span.icon-google-plus Google+
         section
           h2 Sandra Szenti
           p sandra@idoescode.com
           p sandra.idoescode.com
         section
           h3 Front End Developer / London, UK
-          p I've been freelance contracting since last year, working at both agency and client side. I also work remotely occasionally, depending on the project needs. 
+          p I've been freelance contracting since 2014, working at both agency and client side. I also work remotely occasionally, depending on the project needs. 
         section.experience
           h3 Projects
 
@@ -130,6 +127,6 @@ html(lang="en")
               li 3D modelling
               li 3D printing
       p
-        a(href="#container") Back to the top of the page
+        a(href="#heading") Back to the top of the page
 
 

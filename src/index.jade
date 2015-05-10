@@ -1,8 +1,7 @@
 doctype html
 html(lang="en")
   head
-    meta(charset='utf-8')
-    title= ('Sandra Szenti - Front End Developer')
+    include ./includes/meta.jade
     link(rel='stylesheet', type='text/css', href='styles/main.min.css')
     script(defer, src="/scripts/main.min.js")
   body.portfolio
@@ -12,9 +11,9 @@ html(lang="en")
         a.active(href='#') Projects
         a(href='skills.html') Skills
         a(href='contact.html') Contact
-    article#container(role='main', tabindex='-1')
+    article#container(role='main')
       p.intro This is a keyboard & screenreader friendly site.
-      h1 Sandra Szenti's portfolio
+      h1#heading(tabindex='-1') Sandra Szenti's portfolio
       .col2
         include ./includes/frontliners.jade
         include ./includes/brittrip.jade
@@ -30,6 +29,6 @@ html(lang="en")
         include ./includes/fhb.jade
         
       p
-        a(href="#container") Back to the top of the page
+        a(href="#heading") Back to the top of the page
 
             

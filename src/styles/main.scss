@@ -6,6 +6,7 @@
 
 * {
 	box-sizing: border-box;
+	outline: none;
 }
 
 body {
@@ -40,8 +41,8 @@ a span, button span {
 }
 
 h1 {
-	margin-top: 2.6em;
-	margin-bottom: 1.8em;
+	padding-top: 2.6em;
+	margin: 0 0 1.8em 0;
 	color: #fff;
 	text-transform: uppercase;
 	text-align: center;
@@ -113,35 +114,34 @@ header {
 		}
 	}
 
-	.social a {
-		display: block;
-		font-size: 2rem;
-		width: 1em;
-		height: 1em;
-		line-height: 1.2em;
-		overflow: hidden;
-		margin: 0.5em auto;
-		border-radius: 0.06em;
-
-		&:first-child {
+	#social {
+		background: #fff;
+		width: 34em;
+		max-width: 90%;
+		margin: 0 auto;
+		padding: 1.4em;
+		box-shadow: 2px 1px 0.3em darken($secondary, 15%);
+		
+		a {
+			display: inline-block;
+			font-size: 2rem;
+			width: 1.2em;
+			height: 1.2em;
+			line-height: 1.2em;
+			overflow: hidden;
+			margin: 0.2em;
+			padding: 0.1em;
 			color: $secondary;
-			background: #fff;
+			border: 1px solid #fff;
+		}
 
-			span {
-				font-size: 1.2em;
-				margin: -0.1em 0 0 -0.1em;
-			}
+		a:nth-child(3) {
+			color: #000;
 		}
 	}
 
-	.social a:hover, .social a:focus {
-		background: #fff;
-		color: $secondary;
-
-		&:first-child {
-			color: #fff;
-			background: $secondary;
-		}
+	#social a:hover, #social a:focus {
+		border: 1px solid $tertiary;
 	}
 		
 }
@@ -176,19 +176,34 @@ header {
 			color: $tertiary;
 			text-decoration: none;
 			line-height: 1.2em;
-			width: 1em;
-			height: 1.2em;
-			margin: 0.9em 0.4em 0 0;
-			padding: 0.1em;
+			width: 1.25em;
+			height: 1.25em;
+			margin: 0.9em 0.3em 0 0;
+			padding: 0 0.2em 0 0.05em;
 			overflow: hidden;
+			background: #fff;
+			border: none;
+			vertical-align: bottom;
+			border: 1px solid transparent;
 
-			&:hover, &:focus, &.active {
-				background: lighten($tertiary, 23%);
-				color: #fff;
+			&:hover, &:focus {
+				border: 1px solid $tertiary;
 			}
 
-			&.active + ul {
+			& + div {
+				display: none;
+				margin-top: 0.3em;
+			}
+
+			&.active + div {
 				display: block;
+				vertical-align: center;
+					
+				> span {
+					vertical-align: bottom;
+					margin-right: 0.4em;
+					white-space: nowrap;
+				}
 			}
 		}
 		
@@ -214,26 +229,28 @@ header {
 	
 }
 
-ul.share {
-	display: none;
+.project ul.share, ul.share {
+	display: inline-block;
 	white-space: nowrap;
 	overflow: hidden;
 	padding: 0;
 	margin: 0;
 	background: #fff;
 	text-align: right;
+	vertical-align: bottom;
 
 	li {
 		list-style: none;
 		display: inline-block;
 		font-size: 1.2rem;
-		width: 1.7em;
 		overflow: hidden;
 		margin-right: 0.3em;
+		height: 1.4em;
+		vertical-align: bottom;
 		
 		a {
-			padding: 0.4em 0.3em 0;
-			margin-top: 0.4em;
+			margin: 0.2em 0;
+			padding: 0;
 		}
 	}
 }
@@ -260,6 +277,7 @@ ul.share {
 
 	.tools {
 		text-align: right;
+
 		a {
 			display: inline-block;
 		}
@@ -269,11 +287,45 @@ ul.share {
 			border: none;
 			background: #fff;
 			margin-right: 0.7em;
-			padding: 0 0.4em;
+			padding: 0.4em;
+			padding-bottom: 0.2em;
 		}
 
-		button.active + ul {
+		button:focus, a:focus, button:hover, a:hover {
+			background: lighten($tertiary, 8%);
+			color: #fff;
+		}
+
+		button + div {
+			display: none;
+		}
+
+		button.active + div {
 			display: block;
+			margin-top: 0.4em;
+		}
+
+		ul {
+			margin-right: 0.5em;
+
+			li {
+				width: 1.55em;
+				height: 1.5em;
+				vertical-align: bottom;
+
+				a {
+					margin: 0.2em 0;
+					padding: 0.05em;
+					height: 1.3em;
+					width: 1.3em;
+					border: 1px solid transparent;
+				}
+
+				a:hover, a:focus {
+					border: 1px solid $tertiary;
+					background: #fff;
+				}
+			}
 		}
 
 	}
@@ -309,7 +361,7 @@ ul.share {
 	}
 }
 
-@media (min-width: 440px) and (max-resolution: 1.5dppx) {
+@media (min-width: 440px) and (max-resolution: 1.5dppx), (min-width: 440px) and (max-resolution: 192dpi) {
 	.col2 {
 		.project {
 			display: inline-block;
@@ -320,20 +372,66 @@ ul.share {
 				position:relative;
 				display: inline-block;
 				overflow:hidden;
-				width: 25%;
+				width: 35%;
 				text-align: center;
+				margin-top: 1.8em;
+				vertical-align: top;
+
+				img {
+					width: 12rem;
+				}
 			}
 
 			.description {
 				display: inline-block;
-				width: 70%;
+				width: 60%;
 			}
 		}
 	}
 }
 
+@media (min-resolution: 1.5dppx) and (orientation: portrait), (min-resolution: 172dpi) and (orientation: portrait) {
+	nav {
+		font-size: 2rem;
+		margin-bottom: 3rem;
+	}
 
-@media (min-width: 810px) and (max-resolution: 1.5dppx) {
+	.project .footer a {
+		font-size: 3rem;
+
+		& + div {
+			span {
+				font-size: 1.4rem;
+			}
+		}
+	}
+	
+
+	.tools a, .tools button {
+		font-size: 2.2rem;
+	}
+
+	.project ul.share, .skills .tools ul.share {
+		font-size: 2em;
+		height: 2em;
+		width: 100%;
+
+		li {
+			height: auto;
+			width: 72px;
+
+			a span {
+				font-size: 1.2em;
+
+				&:before {
+					margin-right: 2em;
+				}
+			}
+		}
+	}
+}
+
+@media (min-width: 810px) and (orientation:landscape) {
 	.col2, .col5 {
 		display: inline-block;
 		vertical-align: top;

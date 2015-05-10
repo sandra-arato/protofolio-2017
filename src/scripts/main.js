@@ -28,6 +28,7 @@ document.addEventListener('DOMContentLoaded', function(){
 			});
 			masonryInit = true;
 			msnry.layout();
+			window.msnry = msnry;
 		} else if (masonryInit) {
 			msnry.destroy();
 			masonryInit = false;
@@ -59,31 +60,37 @@ document.addEventListener('DOMContentLoaded', function(){
 	};
 
 	shareHandler = function () {
-		var shareButtons = document.getElementsByClassName('share');
+		var shareButtons = document.querySelectorAll('a.share'),
 			len = shareButtons.length,
-			i;
-		for(i = 0; i < len; i++) {
-			shareButtons[i].addEventListener('click', function(e){
-				e.preventDefault();
-				var element = e.target,
-					listBoxId = element.getAttribute('href');
-				
-				listBoxId = listBoxId.slice(1, listBoxId.length);
+			i, eventHandler;
 
-				if(element.className.indexOf('active') > -1) {
-					element.className = 'share icon-share';
-				} else {
-					element.className = 'share icon-share active';
-				}
-				
-				document.getElementById(listBoxId).setAttribute('tabindex', '-1');
-				document.getElementById(listBoxId).focus();
-				
+		eventHandler = function(e) {
+			var element = e.target;
+
+			e.preventDefault();
+			
+			if(element.className.indexOf('active') > -1) {
+				element.className = 'share icon-share';
+				element.setAttribute('aria-pressed', 'false');
+				element.nextElementSibling.setAttribute('aria-hidden', 'true');
+				element.focus();
+			} else {
+				element.className = 'share icon-share active';
+				element.setAttribute('aria-pressed', 'true');
+				element.nextElementSibling.setAttribute('aria-hidden', 'false');
+				element.nextElementSibling.focus();				
+			}
+			if(masonryInit){
 				msnry.layout();
-			})
-
-			shareButtons[i].addEventListener('blur', function(e){
-				console.log(e);
+			}
+			
+		}
+		for(i = 0; i < len; i++) {
+			shareButtons[i].addEventListener('click', eventHandler);
+			shareButtons[i].addEventListener('keyup', function(e){
+				if (e.which === 32) {
+					eventHandler(e);
+				}
 			})
 		}
 
@@ -111,10 +118,11 @@ document.addEventListener('DOMContentLoaded', function(){
 					element = e.target.getAttribute('type') ? e.target : e.target.parentElement;
 					if(element.className.indexOf('active') > -1) {
 						element.className = '';
+						element.nextElementSibling.setAttribute('aria-hidden', 'true');
 					} else {
 						element.className = 'active';
-						console.log(element.nextSibling);
-						element.nextElementSibling.setAttribute('tabindex', '-1');
+						console.log(element.nextElementSibling);
+						element.nextElementSibling.setAttribute('aria-hidden', 'false');
 						element.nextElementSibling.focus();
 					}
 
