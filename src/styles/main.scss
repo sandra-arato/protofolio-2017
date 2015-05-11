@@ -169,6 +169,7 @@ header {
 
 	.footer {
 		text-align: right;
+
 		a {
 			font-family: 'icomoon';
 			display: inline-block;
@@ -390,47 +391,6 @@ header {
 	}
 }
 
-@media (min-resolution: 1.5dppx) and (orientation: portrait), (min-resolution: 172dpi) and (orientation: portrait) {
-	nav {
-		font-size: 2rem;
-		margin-bottom: 3rem;
-	}
-
-	.project .footer a {
-		font-size: 3rem;
-
-		& + div {
-			span {
-				font-size: 1.4rem;
-			}
-		}
-	}
-	
-
-	.tools a, .tools button {
-		font-size: 2.2rem;
-	}
-
-	.project ul.share, .skills .tools ul.share {
-		font-size: 2em;
-		height: 2em;
-		width: 100%;
-
-		li {
-			height: auto;
-			width: 72px;
-
-			a span {
-				font-size: 1.2em;
-
-				&:before {
-					margin-right: 2em;
-				}
-			}
-		}
-	}
-}
-
 @media (min-width: 810px) and (orientation:landscape) {
 	.col2, .col5 {
 		display: inline-block;
@@ -444,6 +404,7 @@ header {
 			figure {
 				display: block;
 				width: auto;
+				margin-top: 0;
 			}
 
 			.description {
@@ -455,9 +416,13 @@ header {
 
 	.col5 {
 		width: auto;
+		
+		.col {
+			padding-left: 0.5em;
+		}
 
 		.project {
-			width: 36rem;
+			width: 35rem;
 		}
 	}
 
@@ -485,8 +450,11 @@ header {
 		width: 72rem;
 		text-align: justify;
 
-		.project {
-			width: 35rem;
+		.col {
+			display: inline-block;
+			width: 35.5em;
+			vertical-align: top;
+			padding-left: 0;
 		}
 
 		.experience{
