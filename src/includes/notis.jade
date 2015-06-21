@@ -1,0 +1,10 @@
+extends project.jade
+
+block figure
+	img(src='images/notis.png', sizes='(min-width: 440px) 192px, 100vw', srcset='images/notis.png 440w, images/notis.x15.png 1.5x, images/notis.x2.png 2x, images/notis.x15.png 1x', alt='Notis logo')
+block title
+	h2 Notis
+block content
+	p For the HackRisk hackathon by Allianz, we've built a mobile app that tracks your journey for disruptions and offers alternatives. It uses Ionic and AngularJS.
+block links
+	+footer({ github:'https://bitbucket.org/sandraszenti/notis/overview', web:'http://sandraszenti.github.io/notis-project-summary/', share: {id:'notis', url:'http://sandraszenti.github.io/notis-project-summary/'}})

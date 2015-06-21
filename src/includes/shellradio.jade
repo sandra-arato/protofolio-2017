@@ -1,0 +1,11 @@
+extends project.jade
+
+block figure
+	div.videowrapper
+		iframe(id='ytplayer', type='text/html', width='544', height='306', src='http://www.youtube.com/embed/a_DT4PFb9Os?autoplay=0', frameborder='0')
+block title
+	h2 Shell Community Radio
+block content
+	p On Intel's IoT Roadshow hackathon we've built a community web radio hosted on the Intel Edison board. The board detects the noise level around through a microphone and plays the song that is appropriate for the noise level. To extend this, we were implementing Spotify and Echo Nest APIs to serve personalised tracks and playlists. On the video, we show how you can connect to the radio through your web browser and listen to the songs.
+block links
+	+footer({github:'https://github.com/sandraszenti/shell-radio', share:{id:'shellradio', url: 'https://github.com/sandraszenti/shell-radio'}})
