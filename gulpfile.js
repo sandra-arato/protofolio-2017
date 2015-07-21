@@ -5,9 +5,11 @@ var gulp = require('gulp'),
 	rename = require('gulp-rename'),
 	concat = require('gulp-concat'),
 	uglify = require('gulp-uglify'),
-	jade = require('gulp-jade')
+	jade = require('gulp-jade'),
+	gzip = require('gulp-gzip'),
 	imagemin = require('gulp-imagemin'),
-	pngquant = require('imagemin-pngquant');
+	pngquant = require('imagemin-pngquant'),
+	critical = require('critical');
 
 gulp.task('process-styles', function(){
 	return sass('src/styles/main.scss', { 
@@ -18,10 +20,11 @@ gulp.task('process-styles', function(){
 			'src/styles/_icomoon.scss'
 		]})
 		.pipe(autoprefixer('last 2 version'))
-        .pipe(gulp.dest('dest/styles'))
-        .pipe(rename({suffix: '.min'}))
-        .pipe(minifycss())
-        .pipe(gulp.dest('dest/styles'));
+		.pipe(gulp.dest('dest/styles'))
+		.pipe(rename({suffix: '.min'}))
+		.pipe(minifycss())
+		.pipe(gzip())
+		.pipe(gulp.dest('dest/styles'));
 });
 
 gulp.task('process-scripts', function(){
@@ -30,6 +33,7 @@ gulp.task('process-scripts', function(){
 	.pipe(gulp.dest('dest/scripts/'))
 	.pipe(rename({suffix: '.min'}))
 	.pipe(uglify())
+	.pipe(gzip())
 	.pipe(gulp.dest('dest/scripts/'));
 });
 
@@ -40,13 +44,13 @@ gulp.task('templates', function(){
 });
 
 gulp.task('images', function() {
-    return gulp.src('src/images/*')
-        .pipe(imagemin({
-            progressive: true,
-            svgoPlugins: [{removeViewBox: false}],
-            use: [pngquant()]
-        }))
-        .pipe(gulp.dest('dest/images'));
+	return gulp.src('src/images/*')
+		.pipe(imagemin({
+			progressive: true,
+			svgoPlugins: [{removeViewBox: false}],
+			use: [pngquant()]
+		}))
+		.pipe(gulp.dest('dest/images'));
 });
 
 gulp.task('watch', function(){
@@ -54,12 +58,22 @@ gulp.task('watch', function(){
 	gulp.watch('src/*.jade', ['templates']);
 	gulp.watch('src/includes/*.jade', ['templates']);
 	gulp.watch('src/styles/*.scss', ['process-styles']);
-	gulp.watch('src/images/*', ['images']);
+});
+
+gulp.task('critical', ['process-styles'], function () {
+	critical.generateInline({
+		base: 'dest/',
+		src: 'index.html',
+		styleTarget: 'dest/styles/main-critical.css',
+		htmlTarget: 'dest/index.html',
+		width: 420,
+		height: 720,
+		minify: true
+	});
 });
 
 gulp.task('default', function(){
-	gulp.run('process-styles');
 	gulp.run('process-scripts');
 	gulp.run('templates');
-	gulp.run('images');
+	gulp.run('critical');
 });
