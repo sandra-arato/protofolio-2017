@@ -23,7 +23,6 @@ gulp.task('process-styles', function(){
 		.pipe(gulp.dest('dest/styles'))
 		.pipe(rename({suffix: '.min'}))
 		.pipe(minifycss())
-		.pipe(gzip())
 		.pipe(gulp.dest('dest/styles'));
 });
 
@@ -33,7 +32,6 @@ gulp.task('process-scripts', function(){
 	.pipe(gulp.dest('dest/scripts/'))
 	.pipe(rename({suffix: '.min'}))
 	.pipe(uglify())
-	.pipe(gzip())
 	.pipe(gulp.dest('dest/scripts/'));
 });
 

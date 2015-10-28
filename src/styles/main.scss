@@ -362,7 +362,8 @@ header {
 	}
 }
 
-@media (min-width: 440px) and (max-resolution: 1.5dppx), (min-width: 440px) and (max-resolution: 192dpi) {
+@media (min-width: 440px) and (max-resolution: 1.5dppx), 
+(min-width: 440px) and (max-resolution: 192dpi) {
 	.col2 {
 		.project {
 			display: inline-block;
@@ -391,15 +392,17 @@ header {
 	}
 }
 
-@media (min-width: 810px) and (orientation:landscape) {
+@media (min-width: 758px) and (orientation:landscape) {
 	.col2, .col5 {
 		display: inline-block;
 		vertical-align: top;
 	}
 	.col2 {
+		margin-right: 1em;
+
 		.project {
 			display: block;
-			width: 14rem;
+			width: 24vw;
 
 			figure {
 				display: block;
@@ -422,7 +425,7 @@ header {
 		}
 
 		.project {
-			width: 35rem;
+			width: 46vw;
 		}
 	}
 
@@ -441,20 +444,31 @@ header {
 	}
 }
 
-@media (min-width: 1400px) {
+@media (min-width: 1024px) {
 	#container > p {
 		padding-top: 2em;
 	}
 
+	.skills .col5 {
+		width: 78vw;
+	}
+
 	.col5, .skills .col5 {
-		width: 72rem;
 		text-align: justify;
 
 		.col {
 			display: inline-block;
-			width: 35.5em;
+			width: 32vw;
 			vertical-align: top;
 			padding-left: 0;
+
+			&:first-child {
+				margin-right: 1.5em;
+			}
+		}
+
+		.project {
+			width: 100%;
 		}
 
 		.experience{
@@ -474,7 +488,11 @@ header {
 	}
 
 	.col2 {
-		margin-right: 0.5rem;
+		margin-right: 1.5em;
+
+		.project {
+			width: 16vw;
+		}
 	}
 
 }
