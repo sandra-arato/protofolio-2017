@@ -2,7 +2,7 @@
 @import "icomoon";
 @import "colors";
 
-@import url(http://fonts.googleapis.com/css?family=Josefin+Sans:400,600|Quicksand);
+// @import url(http://fonts.googleapis.com/css?family=Josefin+Sans:400,600|Quicksand);
 
 * {
 	box-sizing: border-box;
@@ -16,6 +16,7 @@ body {
 	font-size: 16px;
 	padding-bottom: 3rem;
 	word-spacing: 0.2em;
+	min-width: 320px;
 }
 
 p {
@@ -29,7 +30,6 @@ h1, h2, h3, h4, h5 {
 
 .noshow {
 	visibility: hidden;
-	max-height: 0;
 }
 
 a span, button span {
@@ -43,7 +43,7 @@ a span, button span {
 h1 {
 	padding-top: 2.6em;
 	margin: 0 0 1.8em 0;
-	color: #fff;
+	color: $tertiary;
 	text-transform: uppercase;
 	text-align: center;
 	letter-spacing: 0.15em;
@@ -51,42 +51,45 @@ h1 {
 
 header {
 	position: fixed;
-	top: -18em;
-	left: -3em;
-	width: 10000px;
-	transform: rotate(-4deg);
+	top: 0;
 	font-size: 1.2em;
 	z-index: 10001;
+	width: 100%;
 
 	nav {
-		padding: 1.6em 0 1em 2em;
-		background: #fff;
+		background-color: $primary;
 		font-family: 'Josefin Sans', sans-serif;
-		box-shadow: 2px 1px 2em darken($secondary, 25%);
+		display: flex;
+		flex-direction: row;
+		align-items: flex-end;
+		padding-top: 0.8em;
 
 		p {
 			margin: 0 0 0.2em 1em;
-			max-height: 3em;
 			text-transform: uppercase;
 			font-size: 1.4em;
 			letter-spacing: 0.06em;
-			color: $tertiary;
-			transition: max-height 0.2s ease;
+			color: #fff;
 		}
 
 		a {
+			display: inline-flex;
 			text-transform: uppercase;
-			color: $text;
+			color: lighten($secondary, 5%);
 			line-height: 1.2em;
 			text-decoration: none;
 			letter-spacing: 0.03em;
-			margin: 0 1.2em;
-			background-color: #fff;
-			transition: color 0.3s ease;
+			padding: 0.2em 0.4em;
+			margin: 0 5px;
+			position: relative;
+			top: 4px;
+			border-bottom: 4px solid transparent;
+			transition: color 0.3s ease, border-color 0.3s ease;
+
 
 			&:hover, &:active, &:focus, &.active {
-				color: $primary;
-				text-decoration: underline;
+				color: #fff;
+				border-bottom-color: #fff;
 			}
 		}
 	}
@@ -120,8 +123,7 @@ header {
 		max-width: 90%;
 		margin: 0 auto;
 		padding: 1.4em;
-		box-shadow: 2px 1px 0.3em darken($secondary, 15%);
-		
+
 		a {
 			display: inline-block;
 			font-size: 2rem;
@@ -143,7 +145,7 @@ header {
 	#social a:hover, #social a:focus {
 		border: 1px solid $tertiary;
 	}
-		
+
 }
 
 .project {
@@ -152,8 +154,7 @@ header {
 	text-align: left;
 	background: #fff;
 	padding: 1em;
-	margin-bottom: 1.2em;
-	box-shadow: 2px 1px 0.3em darken($secondary, 15%);
+	border-bottom: 1px solid #ddd;
 
 	figure {
 		margin: 0;
@@ -199,7 +200,7 @@ header {
 			&.active + div {
 				display: block;
 				vertical-align: center;
-					
+
 				> span {
 					vertical-align: bottom;
 					margin-right: 0.4em;
@@ -207,7 +208,7 @@ header {
 				}
 			}
 		}
-		
+
 	}
 
 	.videowrapper {
@@ -227,7 +228,7 @@ header {
 			height: 100%;
 		}
 	}
-	
+
 }
 
 .project ul.share, ul.share {
@@ -248,7 +249,7 @@ header {
 		margin-right: 0.3em;
 		height: 1.4em;
 		vertical-align: bottom;
-		
+
 		a {
 			margin: 0.2em 0;
 			padding: 0;
@@ -260,14 +261,13 @@ header {
 	background: #fff;
 	text-align: left;
 	padding: 1em 1em 2em 1em;
-	box-shadow: 0px 1px 0.8em darken($secondary, 22%);
 
 	section {
 		margin: 1.2em 0;
 		padding-top: 1.4em;
-		
+
 		h2, h3 {
-			color: lighten($primary, 15%);
+			color: darken($primary, 15%);
 			margin: 1.2em 0 0.4em 0;
 		}
 
@@ -331,7 +331,7 @@ header {
 
 	}
 
-	.client, 
+	.client,
 	.talents p {
 		font-family: 'Josefin Sans', sans-serif;
 		font-size: 1.15rem;
@@ -354,18 +354,19 @@ header {
 				list-style-type: none;
 				content: " \2022";
 			}
-			
+
 		}
 	}
 }
 
-@media (min-width: 440px) and (max-resolution: 1.5dppx), 
+@media (min-width: 440px) and (max-resolution: 1.5dppx),
 (min-width: 440px) and (max-resolution: 192dpi) {
 	.col2 {
 		.project {
 			display: inline-block;
 			width: 100%;
 			vertical-align: bottom;
+			border-bottom: 1px solid #ddd;
 
 			figure {
 				position:relative;
@@ -400,6 +401,7 @@ header {
 		.project {
 			display: block;
 			width: 24vw;
+			margin-bottom: 1.2em;
 
 			figure {
 				display: block;
@@ -416,13 +418,14 @@ header {
 
 	.col5 {
 		width: auto;
-		
+
 		.col {
 			padding-left: 0.5em;
 		}
 
 		.project {
 			width: 46vw;
+			margin-bottom: 1.2em;
 		}
 	}
 
@@ -442,10 +445,6 @@ header {
 }
 
 @media (min-width: 1024px) {
-	#container > p {
-		padding-top: 2em;
-	}
-
 	.skills .col5 {
 		width: 78vw;
 	}
@@ -546,7 +545,7 @@ header {
 			padding-top: 0;
 		}
 
-		.client, 
+		.client,
 		.talents p {
 			margin-top: 0.4em;
 		}

@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/sandraszenti/protofolio-2015.git"
+    "url": "https://github.com/sandra-arato/protofolio-2015.git"
   },
-  "author": "Sandra Szenti",
+  "author": "Sandra Arato",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/sandraszenti/protofolio-2015/issues"
+    "url": "https://github.com/sandra-arato/protofolio-2015/issues"
   },
-  "homepage": "https://github.com/sandraszenti/protofolio-2015",
+  "homepage": "https://github.com/sandra-arato/protofolio-2015",
   "devDependencies": {
     "critical": "^0.6.0",
     "gulp": "^3.8.11",

@@ -5,7 +5,7 @@ mixin footer(sharing)
 				when 'share'
 					a(class='share icon-share', role='button', href='#'+val.id) Share this project
 					div(tabindex='-1', id=val.id, aria-hidden='true')
-						span Choose sharing option:
+						span Share on:
 						ul.share
 							li: a(href='https://www.facebook.com/sharer/sharer.php?u='+val.url, target='_blank'): span.icon-facebook2 Facebook
 							li: a(href='http://twitter.com/share?text=Awesome project by @whatevertechno!&url='+val.url, target='_blank'): span.icon-twitter Twitter
@@ -26,7 +26,4 @@ article.project
 		block content
 			p Bear claw pastry candy canes toffee cupcake. Wafer donut macaroon. Tootsie roll sweet jelly-o. Hello.
 		block links
-			+footer({github:'https://github.com/sandraszenti', share:'test'})
-
-
-		
+			+footer({github:'https://github.com/sandra-arato', share:'test'})
