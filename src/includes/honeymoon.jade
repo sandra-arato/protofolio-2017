@@ -1,0 +1,11 @@
+extends project.jade
+
+block figure
+	img(src='images/honeymoon.png', sizes='(min-width: 440px) 192px, 100vw', srcset='images/honeymoon.png 440w, images/honeymoon.x15.png 1.5x, images/honeymoon.x2.png 2x, images/honeymoon.x15.png 1x', alt='honeymoon Explorer logo')
+block title
+	p.sub 2016
+	h2 Honeymoon Explorer
+block content
+	p A little SPA quiz built on Vue.js that suggests a honeymoon destination based on the answers. It uses Laravel as a backend and collects and displays answers on an admin page.
+block links
+	+footer({ github:'https://github.com/sandra-arato/vue-test', web:'http://kviz.egycsipeteskuvo.hu', share: {id:'honeymoon', url:'http://kviz.egycsipeteskuvo.hu'}})
