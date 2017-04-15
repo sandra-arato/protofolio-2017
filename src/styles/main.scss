@@ -32,6 +32,11 @@ h1, h2, h3, h4, h5 {
 	visibility: hidden;
 }
 
+.sub {
+	font-size: 0.8rem;
+	margin: 0;
+}
+
 a span, button span {
 	display: inline-block;
 	font-family: 'icomoon';
@@ -41,7 +46,7 @@ a span, button span {
 }
 
 h1 {
-	padding-top: 2.6em;
+	padding-top: 4.5em;
 	margin: 0 0 1.8em 0;
 	color: $tertiary;
 	text-transform: uppercase;
@@ -55,34 +60,34 @@ header {
 	font-size: 1.2em;
 	z-index: 10001;
 	width: 100%;
+	text-align: center;
 
 	nav {
 		background-color: $primary;
 		font-family: 'Josefin Sans', sans-serif;
-		display: flex;
-		flex-direction: row;
-		align-items: flex-end;
 		padding-top: 0.8em;
+		max-width: 100%;
+		min-height: 6rem;
 
 		p {
-			margin: 0 0 0.2em 1em;
+			display: block;
+			width: 100%;
 			text-transform: uppercase;
 			font-size: 1.4em;
 			letter-spacing: 0.06em;
 			color: #fff;
+			margin: 0;
+			padding-bottom: 0.5rem;
 		}
 
 		a {
-			display: inline-flex;
 			text-transform: uppercase;
 			color: lighten($secondary, 5%);
 			line-height: 1.2em;
 			text-decoration: none;
 			letter-spacing: 0.03em;
-			padding: 0.2em 0.4em;
+			padding: 0.6em 0.4em;
 			margin: 0 5px;
-			position: relative;
-			top: 4px;
 			border-bottom: 4px solid transparent;
 			transition: color 0.3s ease, border-color 0.3s ease;
 
@@ -100,14 +105,18 @@ header {
 
 	& > p {
 		text-align: right;
-		padding: 4em 2em 0 0;
+		padding: 6em 2em 0 0;
+	}
+
+	& > p + h1 {
+		padding-top: 2em;
 	}
 
 	& > p:last-child {
 		text-align: center;
 
 		a {
-			color: #fff;
+			color: $primary;
 			text-decoration: none;
 
 			&:hover, &:focus {
@@ -119,10 +128,10 @@ header {
 
 	#social {
 		background: #fff;
-		width: 34em;
+		width: 20em;
 		max-width: 90%;
 		margin: 0 auto;
-		padding: 1.4em;
+		padding: 2.6em;
 
 		a {
 			display: inline-block;
@@ -133,7 +142,7 @@ header {
 			overflow: hidden;
 			margin: 0.2em;
 			padding: 0.1em;
-			color: $secondary;
+			color: $text;
 			border: 1px solid #fff;
 		}
 
@@ -156,16 +165,18 @@ header {
 	padding: 1em;
 	border-bottom: 1px solid #ddd;
 
-	figure {
-		margin: 0;
-
-		img {
-			width: 100%;
-		}
+	.sub {
+		margin: 0.4rem 0;
 	}
 
-	h2 {
-		padding-top: 0.4em;
+	img {
+		width: 100%;
+		max-width: 100%;
+	}
+
+	h2,
+	figure {
+		margin: 0;
 	}
 
 	.footer {
@@ -284,7 +295,7 @@ header {
 		}
 
 		button, a {
-			color: lighten($text, 30%);
+			color: $text;
 			border: none;
 			background: #fff;
 			margin-right: 0.7em;
@@ -336,6 +347,10 @@ header {
 		font-family: 'Josefin Sans', sans-serif;
 		font-size: 1.15rem;
 		letter-spacing: 0.08em;
+	}
+
+	.sub,
+	.talents p {
 		margin-top: 2em;
 	}
 
@@ -524,6 +539,11 @@ header {
 		.project {
 			width: 36rem;
 		}
+
+		section, section h3 {
+			margin: 0;
+			padding: 0;
+		}
 	}
 
 	#container {
@@ -545,9 +565,15 @@ header {
 			padding-top: 0;
 		}
 
-		.client,
+		.sub, .client {
+			display: inline-block;
+			margin-top: 0.4em;
+		}
 		.talents p {
 			margin-top: 0.4em;
+		}
+		.tools + section {
+			margin-top: -30px;
 		}
 	}
 }

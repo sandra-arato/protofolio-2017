@@ -11,14 +11,15 @@ html(lang="en")
   body.portfolio
     header
       nav
-        p.noshow Sandra Arato
+        p Sandra Arato
         a.active(href='#') Projects
         a(href='skills.html') Skills
         a(href='contact.html') Contact
     article#container(role='main')
       p.intro This is a keyboard & screenreader friendly site.
-      h1#heading(tabindex='-1') Sandra Arato's portfolio
+      h1#heading(tabindex='-1') Portfolio
       .col2
+        include ./includes/honeymoon.jade
         include ./includes/notis.jade
         include ./includes/frontliners.jade
         include ./includes/brittrip.jade

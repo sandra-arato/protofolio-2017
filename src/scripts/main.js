@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function(){
 		};
 	};
 
-	// skills page resume buttons handler 
+	// skills page resume buttons handler
 	getAction = function (elem) {
 		var type;
 		if (elem.tagName.toLowerCase() === 'button' ) {
@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function(){
 		e.preventDefault();
 
 		var element = e.target.tagName.toLowerCase() !== 'span' ? e.target : e.target.parentElement;
-		
+
 		if(element.className.indexOf('active') > -1) {
 			element.className = classes;
 			element.setAttribute('aria-pressed', 'false');
@@ -55,9 +55,9 @@ document.addEventListener('DOMContentLoaded', function(){
 			element.className = classes + ' active';
 			element.setAttribute('aria-pressed', 'true');
 			element.nextElementSibling.setAttribute('aria-hidden', 'false');
-			element.nextElementSibling.focus();				
+			element.nextElementSibling.focus();
 		}
-		
+
 	}
 
 	// setting up event listeners for the 2 pages
@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function(){
 		var shareButtons = document.querySelectorAll('a.share'),
 			len = shareButtons.length,
 			i;
-		
+
 		for(i = 0; i < len; i++) {
 			shareButtons[i].addEventListener('click', function(e){
 				shareHandler(e, 'share icon-share');
@@ -94,5 +94,5 @@ document.addEventListener('DOMContentLoaded', function(){
 		}
 	}
 
-	document.addEventListener('scroll', debounce(showName, 100));
+	// document.addEventListener('scroll', debounce(showName, 100));
 });
